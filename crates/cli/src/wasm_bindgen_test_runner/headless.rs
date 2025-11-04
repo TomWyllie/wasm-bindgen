@@ -77,7 +77,7 @@ pub fn run(
                 // Allow tests to run in parallel (in theory) by finding any open port
                 // available for our driver. We can't bind the port for the driver, but
                 // hopefully the OS gives this invocation unique ports across processes
-                let driver_addr = TcpListener::bind("127.0.0.1:0")?.local_addr()?;
+                let driver_addr = TcpListener::bind("127.0.0.1:8001")?.local_addr()?;
                 // Spawn the driver binary, collecting its stdout/stderr in separate
                 // threads. We'll print this output later.
                 let mut cmd = Command::new(path);

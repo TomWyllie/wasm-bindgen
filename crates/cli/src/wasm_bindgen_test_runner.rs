@@ -369,7 +369,7 @@ fn rmain(cli: Cli) -> anyhow::Result<()> {
         | TestMode::ServiceWorker { .. } => {
             let srv = server::spawn(
                 &if headless {
-                    "127.0.0.1:0".parse().unwrap()
+                    "127.0.0.1:8000".parse().unwrap()
                 } else if let Ok(address) = std::env::var("WASM_BINDGEN_TEST_ADDRESS") {
                     address.parse().unwrap()
                 } else {
